@@ -1,0 +1,26 @@
+{
+  "name": "mctimothy-tim-server",
+  "version": "1.0.0",
+  "description": "Backend for Tim - McTimothy Associates AI Associate chatbot + Advisor/Admin portal",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "seed": "node seed.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.1",
+    "nanoid": "^3.3.7",
+    "socket.io": "^4.7.5"
+  },
+  "allowScripts": {
+    "better-sqlite3@11.10.0": true
+  }
+}
