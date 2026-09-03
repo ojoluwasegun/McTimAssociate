@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Portal - McTimothy Associates</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div id="loginView" class="demo-page" style="margin-top:110px;max-width:380px;">
+  <div class="pillar-mark" style="margin-bottom:18px;"><span class="dot"></span><strong>McTimothy Associates</strong></div>
+  <div class="card">
+    <h2 style="margin-bottom:4px;">Admin sign in</h2>
+    <p style="color:var(--ink-soft);font-size:13.5px;margin-top:0;">Manage Tim, advisors, and content.</p>
+    <div class="field"><label>Email</label><input id="loginEmail" type="email" /></div>
+    <div class="field"><label>Password</label><input id="loginPassword" type="password" /></div>
+    <button class="btn yellow" id="loginBtn" style="width:100%;">Sign in</button>
+    <div id="loginError" style="color:var(--mc-red);font-size:13px;margin-top:10px;display:none;"></div>
+  </div>
+</div>
+
+<div id="appShell" class="app-shell hidden">
+  <div class="sidebar">
+    <div class="brand">
+      <div class="badge">T</div>
+      <div class="brand-name"><strong id="companyNameLabel">McTimothy Associates</strong>Admin Portal</div>
+    </div>
+    <div class="nav">
+      <button data-view="analytics" class="active">Analytics</button>
+      <button data-view="advisors">Advisors</button>
+      <button data-view="visitors">Visitor records</button>
+      <button data-view="logs">Complaint logs</button>
+      <button data-view="faqs">FAQs</button>
+      <button data-view="brochures">Brochures &amp; pricing</button>
+      <button data-view="quick">Quick answers</button>
+      <button data-view="replies">Quick replies</button>
+      <button data-view="questions">Unanswered questions</button>
+      <button data-view="calendar">Calendar</button>
+      <button data-view="templates">Proposal templates</button>
+      <button data-view="proposals">Proposals</button>
+      <button data-view="profile">Company profile</button>
+    </div>
+    <div class="status-toggle">
+      <div class="who">Signed in as<strong id="adminNameLabel">-</strong></div>
+      <button class="btn ghost" id="logoutBtn" style="width:100%;">Sign out</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar"><h1 id="viewTitle">Analytics</h1></div>
+    <div class="content" id="content"></div>
+  </div>
+</div>
+
+<div id="toastRoot"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>

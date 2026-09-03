@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Advisor Portal - McTimothy Associates</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<!-- ============ LOGIN ============ -->
+<div id="loginView" class="demo-page" style="margin-top:110px;max-width:380px;">
+  <div class="pillar-mark" style="margin-bottom:18px;"><span class="dot"></span><strong>McTimothy Associates</strong></div>
+  <div class="card">
+    <h2 style="margin-bottom:4px;">Advisor sign in</h2>
+    <p style="color:var(--ink-soft);font-size:13.5px;margin-top:0;">Attend to clients Tim can't fully help.</p>
+    <div class="field"><label>Email</label><input id="loginEmail" type="email" /></div>
+    <div class="field"><label>Password</label><input id="loginPassword" type="password" /></div>
+    <button class="btn yellow" id="loginBtn" style="width:100%;">Sign in</button>
+    <div id="loginError" style="color:var(--mc-red);font-size:13px;margin-top:10px;display:none;"></div>
+  </div>
+</div>
+
+<!-- ============ APP SHELL ============ -->
+<div id="appShell" class="app-shell hidden">
+  <div class="sidebar">
+    <div class="brand">
+      <div class="badge">T</div>
+      <div class="brand-name"><strong>McTimothy Associates</strong>Advisor Portal</div>
+    </div>
+    <div class="nav">
+      <button data-view="dashboard" class="active">Active chat</button>
+      <button data-view="queue">Queue</button>
+      <button data-view="visitors">Visitor log</button>
+      <button data-view="questions">Unanswered questions</button>
+      <button data-view="calendar">Calendar</button>
+      <button data-view="logs">My logs</button>
+      <button data-view="proposals">Proposals</button>
+      <button data-view="appraisals">My performance</button>
+      <button data-view="profile">Profile</button>
+    </div>
+    <div class="status-toggle">
+      <div class="who">Signed in as<strong id="advisorNameLabel">-</strong></div>
+      <button class="btn yellow" id="statusBtn" style="width:100%;">Go active</button>
+      <button class="btn ghost" id="logoutBtn" style="width:100%;margin-top:8px;">Sign out</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <h1 id="viewTitle">Active chat</h1>
+      <span class="pill grey" id="queueBadge">0 waiting</span>
+    </div>
+    <div class="content" id="content"></div>
+  </div>
+</div>
+
+<div id="ringModal" class="modal-backdrop hidden">
+  <div class="modal" style="text-align:center;">
+    <div class="badge" style="width:56px;height:56px;border-radius:50%;background:var(--mc-yellow);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-family:Georgia,serif;font-weight:800;font-size:22px;">T</div>
+    <h3>Incoming chat request</h3>
+    <p id="ringVisitor" style="color:var(--ink-soft);"></p>
+    <p style="font-size:13px;color:var(--ink-soft);">Ringing... <span id="ringCountdown"></span></p>
+    <button class="btn yellow" id="acceptRingBtn" style="width:100%;margin-top:10px;">Accept chat</button>
+    <button class="btn ghost" id="dismissRingBtn" style="width:100%;margin-top:8px;">Dismiss</button>
+  </div>
+</div>
+
+<div id="toastRoot"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/advisor.js"></script>
+</body>
+</html>
