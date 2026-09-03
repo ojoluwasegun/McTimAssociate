@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>McTimothy Associates - Chat with Tim</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div class="demo-page">
+  <div class="pillar-mark"><span class="dot"></span><strong>McTimothy Associates</strong></div>
+  <h1 style="margin-top:14px;">Training, Consulting &amp; HR Advisory</h1>
+  <p style="color:var(--ink-soft)">This page stands in for the McTimothy Associates website. Click the yellow bubble in the
+    bottom-right corner to chat with <strong>Tim</strong>, our AI Associate. To embed Tim on a real site, copy the
+    <code>widget-launcher</code> / <code>widget-panel</code> markup and <code>js/widget.js</code> onto that page.</p>
+</div>
+
+<button class="widget-launcher" id="launcher" aria-label="Chat with Tim">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 4h16v12H7l-3 3V4z" stroke="#101B49" stroke-width="2" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<div class="widget-panel hidden" id="panel">
+  <div class="widget-header">
+    <div class="avatar" id="widgetAvatar">T</div>
+    <div>
+      <div class="title" id="widgetTitle">Tim - McTimothy Associates</div>
+      <div class="sub" id="widgetSub">AI Associate - usually replies instantly</div>
+    </div>
+    <button class="close-btn" id="closeBtn">&times;</button>
+  </div>
+
+  <div class="widget-status hidden" id="statusBar"></div>
+
+  <!-- Gate: name, company, email required before chatting -->
+  <div class="widget-gate" id="gate">
+    <p>Please share a few details so Tim can personalize your chat.</p>
+    <div class="field"><label>Full name *</label><input id="gateName" placeholder="e.g. Ada Obi" /></div>
+    <div class="field"><label>Company name</label><input id="gateCompany" placeholder="e.g. Zenith Bank" /></div>
+    <div class="field"><label>Email *</label><input id="gateEmail" type="email" placeholder="you@company.com" /></div>
+    <div class="field"><label>Course you're interested in (optional)</label><input id="gateCourse" placeholder="e.g. Leadership Development" /></div>
+    <button class="btn yellow" id="gateSubmit" style="margin-top:6px;">Start chat</button>
+    <div class="empty" id="gateError" style="display:none;color:var(--mc-red);padding:0;"></div>
+  </div>
+
+  <div id="chatArea" class="chat-area hidden">
+    <div class="widget-body" id="messages"></div>
+    <div class="quick-actions" id="quickActions">
+      <button data-q="What trainings do you offer?">Trainings</button>
+      <button data-q="What is your pricing?">Pricing</button>
+      <button data-q="Can I get a proposal for my company?">Get a proposal</button>
+      <button id="talkToAdvisorBtn">Talk to an advisor</button>
+    </div>
+    <div class="widget-footer">
+      <textarea id="msgInput" rows="1" placeholder="Type your message..."></textarea>
+      <button class="send-btn" id="sendBtn" aria-label="Send">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 11l18-7-7 18-2-8-9-3z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/widget.js"></script>
+</body>
+</html>
